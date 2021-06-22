@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route, Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+
+import AddJob from "./components/AddJob";
+import Job from "./components/Job";
+import JobsList from "./components/JobsList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <div>
+      <nav className="navbar navbar-expand navbar-dark bg-dark">
+        <a href="/jobs" className="navbar-brand">
+          Job Hunt
         </a>
-      </header>
+        <div className="navbar-nav mr-auto">
+          <li className="nav-item">
+            <Link to={"/jobs"} className="nav-link">
+              Jobs
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to={"/add"} className="nav-link">
+              Add
+            </Link>
+          </li>
+        </div>
+      </nav>
+
+      <div className="container mt-3">
+        <Switch>
+          <Route exact path={["/", "/jobs"]} component={JobsList} />
+          <Route exact path="/add" component={AddJob} />
+          <Route path="/jobs/:id" component={Job} />
+        </Switch>
+      </div>
     </div>
   );
 }
