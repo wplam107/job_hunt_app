@@ -10,7 +10,7 @@ const Job = props => {
     min_years: 0,
     date_posted: null,
     date_applied: null,
-    cover_letter: "",
+    cover_letter: "No",
     response: "N",
     response_date: null
   };
@@ -127,7 +127,7 @@ const Job = props => {
             <div className="form-group">
               <label htmlFor="date_posted">Date Posted</label>
               <input
-                type="text"
+                type="date"
                 className="form-control"
                 id="date_posted"
                 required
@@ -140,7 +140,7 @@ const Job = props => {
             <div className="form-group">
               <label htmlFor="date_applied">Date Applied</label>
               <input
-                type="text"
+                type="date"
                 className="form-control"
                 id="date_applied"
                 required
@@ -152,7 +152,7 @@ const Job = props => {
 
             <div className="form-group">
               <label htmlFor="cover_letter">Cover Letter</label>
-              <input
+              <select
                 type="text"
                 className="form-control"
                 id="cover_letter"
@@ -160,26 +160,34 @@ const Job = props => {
                 value={currentJob.cover_letter}
                 onChange={handleInputChange}
                 name="cover_letter"
-              />
+              >
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
             </div>
 
             <div className="form-group">
               <label htmlFor="response">Response</label>
-              <input
-                type="text"
-                className="form-control"
-                id="response"
-                required
-                value={currentJob.response}
-                onChange={handleInputChange}
-                name="response"
-              />
+              <select
+              type="text"
+              className="form-control"
+              id="response"
+              required
+              value={currentJob.response}
+              onChange={handleInputChange}
+              name="response"
+              >
+                <option value="N">No Response</option>
+                <option value="R">Rejection</option>
+                <option value="F">Follow Up</option>
+                <option value="I">Interview</option>
+              </select>
             </div>
 
             <div className="form-group">
               <label htmlFor="response_date">Response Date</label>
               <input
-                type="text"
+                type="date"
                 className="form-control"
                 id="response_date"
                 required

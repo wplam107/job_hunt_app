@@ -10,7 +10,7 @@ const AddJob = () => {
     min_years: 0,
     date_posted: null,
     date_applied: null,
-    cover_letter: "",
+    cover_letter: "No",
     response: "N",
     response_date: null
   };
@@ -111,7 +111,7 @@ const AddJob = () => {
               onChange={handleInputChange}
               name="job_level"
             >
-              <option value="N">Not Specified</option>
+              <option value="N" selected>Not Specified</option>
               <option value="I">Internship</option>
               <option value="E">Entry Level</option>
               <option value="A">Associate</option>
@@ -161,7 +161,7 @@ const AddJob = () => {
 
           <div className="form-group">
             <label htmlFor="cover_letter">Cover Letter</label>
-            <input
+            <select
               type="text"
               className="form-control"
               id="cover_letter"
@@ -169,7 +169,10 @@ const AddJob = () => {
               value={job.cover_letter}
               onChange={handleInputChange}
               name="cover_letter"
-            />
+            >
+              <option value="No" selected>No</option>
+              <option value="Yes">Yes</option>
+            </select>
           </div>
 
           <div className="form-group">
@@ -183,7 +186,7 @@ const AddJob = () => {
               onChange={handleInputChange}
               name="response"
             >
-              <option value="N">No Response</option>
+              <option value="N" selected>No Response</option>
               <option value="R">Rejection</option>
               <option value="F">Follow Up</option>
               <option value="I">Interview</option>
