@@ -61,11 +61,18 @@ const SankeyViz = () => {
     setData(vizData);
   };
 
-  const SankeyNode = ({ name, x0, x1, y0, y1, color }) => (
-    <rect x={x0} y={y0} width={x1 - x0} height={y1 - y0} fill={color}>
-      <title>{name}</title>
-    </rect>
-  );
+  const SankeyNode = ({ name, x0, x1, y0, y1, color }) => {
+    return (
+      <g>
+        <rect x={x0} y={y0} width={x1 - x0} height={y1 - y0} fill={color}>
+          <title>{name}</title>
+        </rect>
+        <text x={(x0 + x1) / 2 + 10} y={(y0 + y1) / 2} width={x1 - x0} height={y1 - y0} fill="black">
+          {name}
+        </text>
+      </g>
+    );
+  };
   
   const SankeyLink = ({ link, color }) => (
     <path
