@@ -6,6 +6,7 @@ import "./App.css";
 import AddJob from "./components/AddJob";
 import Job from "./components/Job";
 import JobsList from "./components/JobsList";
+import SankeyViz from "./components/Sankey";
 
 function App() {
   return (
@@ -25,6 +26,11 @@ function App() {
               Add
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to={"/viz"} className="nav-link">
+              Viz
+            </Link>
+          </li>
         </div>
       </nav>
 
@@ -33,6 +39,7 @@ function App() {
           <Route exact path={["/", "/jobs"]} component={JobsList} />
           <Route exact path="/add" component={AddJob} />
           <Route path="/jobs/:id" component={Job} />
+          <Route exact path="/viz" component={SankeyViz} />
         </Switch>
       </div>
     </div>
